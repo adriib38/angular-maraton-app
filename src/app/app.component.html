@@ -1,0 +1,22 @@
+<header>
+  <h1>Maratón València 2024</h1>
+  <span id="fecha">7 de diciembre</span> 
+</header>
+<nav>
+  <a routerLink="/">Inicio</a>
+  <a routerLink="/runners">Corredores</a>
+  <a routerLink="/inscription">Inscripción</a>
+  <a routerLink="/shop">Tienda</a>
+</nav>
+
+<div id="content">
+
+  <div class="app-container bg-light">
+      <alert></alert>
+      <router-outlet></router-outlet>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
+
+

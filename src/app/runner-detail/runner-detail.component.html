@@ -1,0 +1,33 @@
+<div *ngIf="runner">
+    <button (click)="goBack()">Volver</button>
+    <h2 id="runner">{{ runner.name }}</h2>  
+    <div id="runner-detail">
+        <span *ngIf="runner.isFirstMarathon" class="first-marathon">
+            ¡Es su primera maratón!
+        </span>
+
+        <ul id="runner-detail-list">
+            <li>Categoría: {{ runner.gender }}s</li>
+            <li>Edad: {{ runner.age }}</li>
+            <li>Ciudad: {{ runner.city }}</li>
+            <li>Fecha de inscripción: {{ runner.registrationDate | date: 'dd/MM/yyyy' }}</li>
+            <li>Club: {{ runner.club }}</li>
+        </ul>
+
+        <p *ngIf="runner.sponsor" class="sponsor">
+            Patrocinado por: {{ runner.sponsor }}
+        </p>
+    </div>
+
+    <div id="form-edit" style="display: flex; flex-direction: column; width: 50%;">
+        <h3>Editar corredor</h3>
+        <input [(ngModel)]="runner.name" placeholder="Nombre">
+        <input [(ngModel)]="runner.age" placeholder="Edad">
+        <input [(ngModel)]="runner.city" placeholder="Ciudad">
+        <button (click)="updateRunner()">Guardar</button>
+    </div>
+</div>
+
+<div *ngIf="!runnerEncontrado">
+    <h2>El corredor no existe</h2>
+</div>

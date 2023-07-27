@@ -1,0 +1,27 @@
+<div *ngIf="runners">
+    <h2>Corredores:</h2>
+   
+    <table id="table-runners">
+        <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Categoría</th>
+            <th>Ciudad</th>
+            <th>Detalles</th>
+            <th>Acciones</th>
+        </tr>
+        <tr *ngFor="let runner of runners?.data">
+            <td class="td-name">{{runner.name}}</td>
+            <td>{{runner.age}}</td>
+            <td>{{runner.gender}}</td>
+            <td>{{runner.city}}</td>
+            <td><a routerLink="/runners/{{runner.id}}">Ver</a></td>
+            <td><button (click)="deleteRunner(runner.id)" class="red">Borrar</button></td>
+        </tr>
+    </table>
+</div>
+
+<div *ngIf="!runners">
+    <h2>Todavia no hay corredores</h2>
+    <a routerLink="/inscription">Incribete ahora</a>
+</div>

@@ -1,0 +1,15 @@
+<h2>Tienda</h2>
+<h4>Productos oficiales EDP Maratón València 2024</h4>
+
+<section id="shop-products">
+    <article *ngFor="let product of products" class="article-product">
+        <div class="product-header">
+            <h3>{{ product.name }}</h3>
+            <span class="product-price">{{ product.price }}€</span>
+        </div>
+ 
+        <p>{{ product.description }}</p>
+        <img src="{{ product.image }}">
+        <button>Añadir al carrito</button>
+    </article>
+</section>

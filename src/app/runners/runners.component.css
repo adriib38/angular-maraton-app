@@ -1,0 +1,26 @@
+#table-runners {
+    width: 100%;
+    margin-top: 20px;    
+}
+
+th {
+    text-align: left;
+}
+
+tr:nth-child(1) {
+    background: rgb(0,55,255);
+    background: linear-gradient(0deg, rgba(0,55,255,1) 1%, rgba(0,46,215,1) 100%); 
+    color: white;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+}
+
+td, th {
+    padding: 10px;
+}
+
+.td-name {
+    font-weight: bold;
+}

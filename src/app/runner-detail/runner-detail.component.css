@@ -1,0 +1,27 @@
+
+h2#runner {
+    margin: 0;
+    padding: 0;
+    font-size: 3em;
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#runner-detail {
+    width: 50%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 0 auto;
+
+    background: rgb(216, 216, 216);
+    padding: 20px;
+}
+
+#runner-detail-list li {
+    margin-bottom: 10px;
+    font-weight: 400;
+}

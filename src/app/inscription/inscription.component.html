@@ -1,0 +1,57 @@
+
+<form id="formulario-inscripcion" class="w-50" style="margin: 0 auto;">
+    <h2>Inscripción</h2>
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" [(ngModel)]="name">
+    </div>
+
+    <div class="form-group">
+        <label for="apellido">Edad</label>
+        <input type="number" class="form-control" name="apellido" id="apellido" placeholder="Apellido" min="17" max="99" [(ngModel)]="age">
+        <small id="apellidoHelp" class="form-text text-muted">Debe ser mayor de 17 años.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="ciudad">Ciudad</label>
+        <input type="text" class="form-control" name="ciudad" id="ciudad" placeholder="Ciudad" [(ngModel)]="city">
+    </div>
+
+    <div class="form-group">
+        <label for="firstMaraton">Primera Maratón</label>
+        <input type="checkbox" name="firstMaraton" id="firstMaraton" [(ngModel)]="isFirstMarathon">
+    </div>
+
+    <div class="form-group">
+        <label for="sponsor">Sponsor</label>
+        <input type="text" class="form-control" name="sponsor" id="sponsor" placeholder="Sponsor" [(ngModel)]="sponsor">
+        <small id="sponsorHelp" class="form-text text-muted">Si no tiene sponsor, deje el campo vacío.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="genero">Género</label>
+        <select class="form-control" name="genero" id="genero" [(ngModel)]="gender">
+          <option value="hombre">Hombre</option>
+          <option value="mujer">Mujer</option>
+          <option value="otro">Otro</option>
+        </select>
+        <small id="generoHelp" class="form-text text-muted">Para competir en una categoría.</small>
+    </div>
+      
+
+    <div class="form-group">
+        <label for="club">Club</label>
+        <input type="text" class="form-control" name="club" id="club" placeholder="Club" [(ngModel)]="club">
+        <small id="clubHelp" class="form-text text-muted">Si no pertenece a un club, deje el campo vacío.</small>
+    </div>
+
+    <div class="alert alert-warning" role="alert">
+        Por favor, antes de inscribirte, asegurate de estar en forma para participar en la competición.
+
+        Participar en una maratón es un esfuerzo físico muy grande, y puede ser peligroso si no se está preparado.
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100" (click)="incribirRunner()">
+        Inscribirme ahora
+    </button>
+</form>
