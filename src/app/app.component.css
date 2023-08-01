@@ -1,42 +1,36 @@
 nav {
-    background-color: #181818;
-    padding: 10px;
+  background-color: #181818;
+  padding: 10px;
 }
 
 nav a {
-    color: #fff;
-    text-decoration: none;
-    margin-right: 80px;
-    font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 80px;
+  font-size: 18px;
 }
-  
+
 nav a:visited {
-    color: #ccc;
+  color: #ccc;
 }
 
 nav a:hover {
-    color: #E36222;
+  color: #e36222;
 }
 
-/* Resetear los márgenes para el cuerpo y el pie de página */
-body, html {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Establecer un contenedor para todo el contenido, incluido el pie de página */
-  #page-container {
-    min-height: 100%;
-    position: relative;
-  }
-  
-  /* Estilo del footer */
-  footer {
-    background-color: #181818;
-    color: #fff;
-    padding: 10px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#page-container {
+  min-height: 100%;
+  position: relative;
+}
+
+h1 {
+  font-style: italic;
+font-weight: bold;
+}

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 import { RunnersService } from '../services/runners.service';
+
 
 @Component({
   selector: 'app-home',
@@ -24,5 +25,4 @@ export class HomeComponent implements OnInit {
       }
     );
   }
-  
 }

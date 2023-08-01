@@ -1,5 +1,22 @@
-#section-sponsors {
-    margin-top: 50px;
+#home {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+#bienvenida {
+    max-width: 1300px;
+}
+
+
+#resumen-2022 p {
+    max-width: 1000px;
+}
+
+video {
+    width: 100%;
+    max-width: 1000px;
+
 }
 
 #logos-sponsors  {
