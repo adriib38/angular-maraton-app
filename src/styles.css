@@ -92,3 +92,45 @@ button.blue { background: #0000ffd5; }
     color: white;
     font-size: 1.5em;
 }
+
+notification {
+    position: fixed;
+    right: 0px;
+    bottom: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.notification-modal {
+    height: 40px;
+    z-index: 9999;
+    border-radius: 5px;
+    padding: 10px;	
+    
+}
+
+.notification-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;  
+    color: #3c763d;
+}
+
+.notification-error {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
+
+.notification-info {
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    color: #31708f;
+}
+
+.notification-warning {
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+    color: #8a6d3b;
+}

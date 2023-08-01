@@ -33,7 +33,7 @@ export class RunnersComponent implements OnInit {
       if (response['status'] === 200) {
    
       }
-      this.alertService.success('Runner deleted successfully', { keepAfterRouteChange: true });
+      this.alertService.success('Corredor eliminado', { keepAfterRouteChange: true });
       
       this.getRunners(); 
  

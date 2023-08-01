@@ -12,7 +12,8 @@ import { ShopComponent } from './shop/shop.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AlertComponent } from './alert/alert.component';
-import { FooterComponent } from './footer/footer.component';    
+import { FooterComponent } from './footer/footer.component';
+import { NotificationComponent } from './notification/notification.component';    
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FooterComponent } from './footer/footer.component';
     ShopComponent,
     AlertComponent,
     FooterComponent,
+    NotificationComponent,
   ],
   imports: [
     BrowserModule,
