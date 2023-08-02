@@ -2,6 +2,7 @@ export class Notification {
     constructor(
         public id: string,
         public type?: NotificationType,
+        public title?: string,
         public message?: string,
         public autoClose: boolean = true,
         public keepAfterRouteChange: boolean = false,

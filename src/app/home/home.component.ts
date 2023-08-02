@@ -22,7 +22,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getNumberOfRunners();
 
-    this.showNotification();
+    //Eperar 3 segundos para mostrar la notificación
+    setTimeout(() => {
+      this.showNotification();
+    }, 3000);
   }
 
   getNumberOfRunners(): void {
@@ -35,11 +38,6 @@ export class HomeComponent implements OnInit {
 
   showNotification(): void {
     console.log('showNotification');
-    this.notificationService.success('Hola', { keepAfterRouteChange: true });
-
-    //this.alertService.success('Welcome to the Marathon Manager! - Alert', { keepAfterRouteChange: true });
-    
-
-
+    this.notificationService.success('¡Hola! 😀', 'Este es un proyecto ficticio. Si quieres ver más proyectos, visita mi perfil de <a href="https://github.com/adriib38" target=_blank>Github</a>.', { autoClose: false, keepAfterRouteChange: true });
   }
 }

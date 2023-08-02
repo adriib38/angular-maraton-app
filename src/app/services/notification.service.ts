@@ -11,11 +11,17 @@ export class NotificationService {
     return this.subject.asObservable().pipe(filter(x => x && x.id === id));
   }
 
-  notification(message: string, type: NotificationType, options: Partial<Notification> = {}) {
+  notification(
+    title: string, // Add the 'title' parameter here
+    message: string,
+    type: NotificationType,
+    options: Partial<Notification> = {}
+  ) {
     const id = options.id || this.defaultId;
     const notification = new Notification(
       id,
       type,
+      title,
       message,
       options.autoClose,
       options.keepAfterRouteChange
@@ -24,24 +30,23 @@ export class NotificationService {
   }
 
   // convenience methods
-  success(message: string, options?: Partial<Notification>) {
-    this.notification(message, NotificationType.Success, options);
+  success(title: string, message: string, options?: Partial<Notification>) {
+    this.notification(title, message, NotificationType.Success, options);
   }
 
-  error(message: string, options?: Partial<Notification>) {
-    this.notification(message, NotificationType.Error, options);
+  error(title: string, message: string, options?: Partial<Notification>) {
+    this.notification(title, message, NotificationType.Error, options);
   }
 
-  info(message: string, options?: Partial<Notification>) {
-    this.notification(message, NotificationType.Info, options);
+  info(title: string, message: string, options?: Partial<Notification>) {
+    this.notification(title, message, NotificationType.Info, options);
   }
 
-  warn(message: string, options?: Partial<Notification>) {
-    this.notification(message, NotificationType.Warning, options);
+  warn(title: string, message: string, options?: Partial<Notification>) {
+    this.notification(title, message, NotificationType.Warning, options);
   }
 
   clear(id = this.defaultId) {
     this.subject.next(new Notification(id));
   }
-
 }

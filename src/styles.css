@@ -55,8 +55,6 @@ h3 {
 
 p, li { font-family: 'Roboto', sans-serif; }
 
-a { color: inherit; }
-
 p { margin: 25px 0; }
 
 form {
@@ -95,26 +93,40 @@ button.blue { background: #0000ffd5; }
 
 notification {
     position: fixed;
-    right: 0px;
+    right: 5px;
     bottom: 50px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 15px;
+    z-index: 9999;
 }
 
 .notification-modal {
-    height: 40px;
+    height: 100%;
     z-index: 9999;
     border-radius: 5px;
-    padding: 10px;	
-    
+    padding: 20px;	
+    max-width: 400px;
+    box-shadow: 2px 1px teal;
+    box-shadow: 1px 1px 3px black;
+    animation: up 0.5s ease-in-out;
 }
 
+@keyframes up {
+    0% { transform: translateY(100%); }
+    100% { transform: translateY(0); }
+}
+
+a.close { cursor: pointer; }
+
 .notification-success {
-    background-color: #dff0d8;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
     border-color: #d6e9c6;  
-    color: #3c763d;
+    color: #141414;
+    border: 1px solid #31708f;
 }
 
 .notification-error {
