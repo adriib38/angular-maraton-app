@@ -16,7 +16,9 @@
             <td>{{runner.gender}}</td>
             <td>{{runner.city}}</td>
             <td><a routerLink="/runners/{{runner.id}}">Ver</a></td>
-            <td><button (click)="deleteRunner(runner.id)" class="red">Borrar</button></td>
+            <td>
+                <button *ngIf="runner.id !== undefined" (click)="deleteRunner(runner.id)" class="red">Borrar</button>
+            </td>
         </tr>
     </table>
 </div>

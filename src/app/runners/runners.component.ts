@@ -29,15 +29,17 @@ export class RunnersComponent implements OnInit {
   }
 
   deleteRunner(id: number) {
-    this.runnersService.deleteRunnerById(id).then((response) => {
-      if (response['status'] === 200) {
-   
-      }
-      this.alertService.success('Corredor eliminado', { keepAfterRouteChange: true });
-      
-      this.getRunners(); 
- 
-    });
+    if (id !== undefined) {
+      this.runnersService.deleteRunnerById(id).then((response) => {
+        if (response['status'] === 200) {
+    
+        }
+        this.alertService.success('Corredor eliminado', { keepAfterRouteChange: true });
+        
+        this.getRunners(); 
+  
+      });
+    }
   }
 
 

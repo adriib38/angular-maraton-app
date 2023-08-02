@@ -1,9 +1,9 @@
 export interface Runner {
-    id: number;
+    id?: number;
     name: string;
     age: number;
     city: string;
-    registrationDate: Date;
+    created_at: Date;
     isFirstMarathon: boolean;
     gender: 'Mujer' | 'Hombre' | 'Otro';
     club: string;

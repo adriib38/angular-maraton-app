@@ -41,6 +41,11 @@ export class RunnersService {
     return this.supabase.from('runners').delete().eq('id', id);
   }
 
+  // Crea un nuevo corredor
+  createRunner(runner: Runner) {
+    return this.supabase.from('runners').insert([runner]);
+  }
+
   updateRunnerById(id: number, runner: Runner) {
     console.log('runners.server.ts - updateRunnerById() - runner:',
     runner);
