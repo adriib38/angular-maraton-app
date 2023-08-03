@@ -26,10 +26,10 @@
 
 .article-product .product-price {
     font-size: 1.2rem;
-    background: #0037FF;
+    background: #007bff;
     color: white;
     border-radius: 3px;
-    padding: 3px;
+    padding: 3px 10px;
 }
 
 .article-product p {

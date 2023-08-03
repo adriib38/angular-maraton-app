@@ -9,73 +9,88 @@ export class AlertComponent implements OnInit, OnDestroy {
   @Input() id = 'default-alert';
   @Input() fade = true;
 
+  //Array de alertas a mostrar
   alerts: Alert[] = [];
+  
   alertSubscription!: Subscription;
   routeSubscription!: Subscription;
 
   constructor(private router: Router, private alertService: AlertService) {}
 
   ngOnInit() {
-    // subscribe to new alert notifications
+    //Subscription al servicio de alerta
     this.alertSubscription = this.alertService
       .onAlert(this.id)
       .subscribe((alert) => {
-        // clear alerts when an empty alert is received
+        //Si la alerta no tiene mensaje
         if (!alert.message) {
-          // filter out alerts without 'keepAfterRouteChange' flag
+          //Filtrar alertas con 'keepAfterRouteChange' como true
+          //Para que las alertas con 'keepAfterRouteChange' como true se mantengan al cambiar de ruta
           this.alerts = this.alerts.filter((x) => x.keepAfterRouteChange);
 
-          // reset 'keepAfterRouteChange' flag on the rest
+          //Filtrar alertas con 'keepAfterRouteChange' como false
+          //Para eliminar las alertas con 'keepAfterRouteChange' como false al cambiar de ruta
           this.alerts.forEach((x) => (x.keepAfterRouteChange = false));
+
+          //Si no hay alertas, salir
           return;
         }
 
-        // add alert to array
+        //Agregar alerta al array
         this.alerts.push(alert);
 
-        // auto close alert if required
+        //Si la alerta tiene 'autoClose' como true, se elimina después de 3 segundos
         if (alert.autoClose) {
           setTimeout(() => this.removeAlert(alert), 3000);
         }
       });
 
-    // clear alerts on location change
+    //Subscription al evento de cambio de ruta, para poder eliminar las alertas al cambiar de ruta
     this.routeSubscription = this.router.events.subscribe((event) => {
+      //Si el evento es de tipo 'NavigationStart', limpiar las alertas
       if (event instanceof NavigationStart) {
+        //Limpiar alertas
         this.alertService.clear(this.id);
       }
     });
   }
 
   ngOnDestroy() {
-    // unsubscribe to avoid memory leaks
+    //Desuscribirse del servicio de alerta y del servicio de cambio de ruta
+    //Para evitar fugas de memoria
     this.alertSubscription.unsubscribe();
     this.routeSubscription.unsubscribe();
   }
 
+  //Eliminar alerta
   removeAlert(alert: Alert) {
-    // check if already removed to prevent error on auto close
+    //Si no hay alerta o no está en el array, salir
     if (!this.alerts.includes(alert)) return;
 
+    //Si la alerta tiene 'fade' como true, se elimina después de 250 milisegundos
     if (this.fade) {
-      // fade out alert
+      //Poner 'fade' como true para que se elimine con una animación
       alert.fade = true;
 
-      // remove alert after faded out
+      //Eliminar alerta después de 250 milisegundos
       setTimeout(() => {
         this.alerts = this.alerts.filter((x) => x !== alert);
       }, 250);
     } else {
-      // remove alert
+      //Si la alerta no tiene 'fade' como true, eliminarla inmediatamente
       this.alerts = this.alerts.filter((x) => x !== alert);
     }
   }
 
+  //Añadir clase CSS a la alerta
   cssClass(alert: Alert) {
+    //Si no hay alerta, salir
     if (alert?.type === undefined) return;
 
+    //Clases CSS fijas a todas las alertas
     const classes = ['alert', 'alert-dismissable', 'mt-4', 'container'];
 
+    //Clases CSS variables, dependiendo del tipo de alerta
     const alertTypeClass = {
       [AlertType.Success]: 'alert-success',
       [AlertType.Error]: 'alert-danger',
@@ -83,12 +98,15 @@ export class AlertComponent implements OnInit, OnDestroy {
       [AlertType.Warning]: 'alert-warning',
     };
 
+    //Añadir clase CSS fija
     classes.push(alertTypeClass[alert.type]);
 
+    //Si la alerta tiene 'fade' como true, añadir clase CSS 'fade'
     if (alert.fade) {
       classes.push('fade');
     }
 
+    //Devolver clases CSS
     return classes.join(' ');
   }
 }
